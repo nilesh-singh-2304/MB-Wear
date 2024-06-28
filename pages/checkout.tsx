@@ -11,7 +11,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Head from "next/head";
 
-const checkout = ({
+const Checkout = ({
   user,
   cart,
   addToCart,
