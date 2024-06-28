@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FlipWords } from "../ui/wordRotate";
 import Heroi from "../photos/tshirth.png";
 import Mug from "../photos/mug.png"
@@ -7,9 +7,16 @@ import Link from "next/link";
 import product from "@/model/product";
 import mongoose from "mongoose";
 import Head from "next/head";
+import { Router, useRouter } from 'next/router';
 
 
 const Mugies = ({products}) => {
+  const router = useRouter()
+  useEffect(() => {
+    if(localStorage.getItem('token')){
+      router.push('/')                 //agr user already logged in h toh use login page nhi dikhayenge
+    }
+  }, [])
   return (
     <div>
        <Head>
