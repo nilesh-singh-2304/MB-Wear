@@ -100,7 +100,7 @@ setpassword('')
             <form onSubmit={handleSubmit} method='POST'>
               <div className="mb-12">
                 <h3 className="text-3xl text-gray-50 font-extrabold">Sign in</h3>
-                <p className="text-sm text-gray-50 mt-4 ">Don't have an account <Link href={'/signup'}><span className="text-warning font-semibold hover:underline ml-1 whitespace-nowrap">Register here</span></Link></p>
+                <p className="text-sm text-gray-50 mt-4 ">Dont have an account <Link href={'/signup'}><span className="text-warning font-semibold hover:underline ml-1 whitespace-nowrap">Register here</span></Link></p>
               </div>
               <div>
                 <label className="text-xs block mb-2 text-gray-50">Email</label>
