@@ -19,7 +19,7 @@ const checkout = ({
   clearCart,
   subTotal,
 }) => {
-  const router = useRouter()
+  const Router = useRouter()
 
   const [name, setname] = useState<string | null>('')
   const [Email, setEmail] = useState<string | null>('')
@@ -33,10 +33,10 @@ const checkout = ({
   useEffect( () => {
     if(localStorage.getItem('token')){
       setEmail(localStorage.getItem('email'))
-      fetchData()
+      FetchData()
     }
     else if(!localStorage.getItem('token')){
-      router.push('/login')
+      Router.push('/login')
       setTimeout(() => {
         toast.warning('Please Login First !!', {
           position: "bottom-right",
@@ -61,7 +61,7 @@ const checkout = ({
     }
   }, [name , Phone , Address , Pincode])
 
-  const fetchData = async()=>{
+  const FetchData = async()=>{
     let a = await  axios.post(`${process.env.NEXT_PUBLIC_HOST}/api/getUser` , {
       token : localStorage.getItem('token') ,
     })
@@ -71,10 +71,10 @@ const checkout = ({
     setAddress(resp.address)
     setPincode(resp.pincode)
     setPhone(resp.phone)
-    getPincode(resp.pincode)
+    GetPincode(resp.pincode)
   }
 
-  const getPincode = async(pin) =>{
+  const GetPincode = async(pin) =>{
     let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
         let pinJson = await pins.json();
         if(Object.keys(pinJson).includes(pin)){
@@ -87,7 +87,7 @@ const checkout = ({
         }
   }
 
-  const handleChange = async (e)=>{
+  const HandleChange = async (e)=>{
 
     if(e.target.name == 'name'){
       setname(e.target.value)
@@ -104,7 +104,7 @@ const checkout = ({
     else if(e.target.name == 'pincode'){
       setPincode(e.target.value)
       if(e.target.value.length == 6 ){
-        getPincode(e.target.value)
+        GetPincode(e.target.value)
       }
       else{
         setState('')
@@ -129,7 +129,7 @@ const checkout = ({
   initialize();
 
 
-  const handleCashFree = async() =>{
+  const HandleCashFree = async() =>{
     try {
       let sessionId;
       let orderId;
@@ -181,7 +181,7 @@ const checkout = ({
               theme: "dark",
             });
             setTimeout(() => {
-              router.push(process.env.NEXT_PUBLIC_HOST)
+              Router.push(process.env.NEXT_PUBLIC_HOST)
             }, 2000);
   
             axios.post(`${process.env.NEXT_PUBLIC_HOST}/api/addpayment` , {
@@ -245,7 +245,7 @@ const checkout = ({
               status : 'Paid'
             })
             
-            await router.push(returnUrl).then()
+            await Router.push(returnUrl).then()
             
   
             setTimeout(() => {
@@ -286,7 +286,7 @@ const checkout = ({
           });
         }, 100);
         setTimeout(() => {
-          router.push(`${process.env.NEXT_PUBLIC_HOST}/checkout`)
+          Router.push(`${process.env.NEXT_PUBLIC_HOST}/checkout`)
         }, 2000);
       }
     } catch (error:any) {
@@ -294,14 +294,14 @@ const checkout = ({
     }
   }
 
-  const checkoutBtn = async()=>{
+  const CheckoutBtn = async()=>{
     try {
       const resp = await axios.post(`${process.env.NEXT_PUBLIC_HOST}/api/route` , {
         name : 'paytm',
         price : subTotal
       })
       const respData = await resp.data;
-      router.push(respData.url);
+      Router.push(respData.url);
       // console.log({respData})
     } catch (error:any) {
       // console.log({msg:error.error})
@@ -335,7 +335,7 @@ const checkout = ({
                   Name
                 </label>
                 <input
-                  onChange={handleChange}
+                  onChange={HandleChange}
                   value={name}
                   type="text"
                   id="name"
@@ -353,14 +353,14 @@ const checkout = ({
                   Email
                 </label>
                 {user.value? <input
-                  onChange={handleChange}
+                  onChange={HandleChange}
                   value={user.email}
                   type="email"
                   id="email"
                   name="email"
                   className="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-accent focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 /> : <input
-                onChange={handleChange}
+                onChange={HandleChange}
                 value={Email}
                 type="email"
                 id="email"
@@ -379,7 +379,7 @@ const checkout = ({
                   Address
                 </label>
                 <textarea
-                  onChange={handleChange}
+                  onChange={HandleChange}
                   value={Address}
                   id="address"
                   name="address"
@@ -396,7 +396,7 @@ const checkout = ({
                   Phone No.
                 </label>
                 <input
-                  onChange={handleChange}
+                  onChange={HandleChange}
                   placeholder="10 Digit Phone No."
                   value={Phone}
                   type="phone"
@@ -415,7 +415,7 @@ const checkout = ({
                   Pincode
                 </label>
                 <input
-                  onChange={handleChange}
+                  onChange={HandleChange}
                   value={Pincode}
                   type="number"
                   id="pincode"
@@ -433,7 +433,7 @@ const checkout = ({
                   Your State
                 </label>
                 <input
-                  onChange={handleChange}
+                  onChange={HandleChange}
                   value={State}
                   type="text"
                   id="state"
@@ -451,7 +451,7 @@ const checkout = ({
                   Your City
                 </label>
                 <input
-                  onChange={handleChange}
+                  onChange={HandleChange}
                   value={City}
                   type="text"
                   id="city"
@@ -518,10 +518,10 @@ const checkout = ({
           <span className="w-full text-center font-bold text-info">Subtotal : ₹{subTotal}</span>
           <div className="card-actions flex">
             <div className="flex">
-              <button disabled = {Disabled} onClick={checkoutBtn} className=" btn btn-accent btn-block mr-1">
+              <button disabled = {Disabled} onClick={CheckoutBtn} className=" btn btn-accent btn-block mr-1">
                 <Link href={"/checkout"}>Pay ₹{subTotal}</Link>
               </button>
-              <button disabled = {Disabled} onClick={handleCashFree} className=" btn btn-accent btn-block mr-1">
+              <button disabled = {Disabled} onClick={HandleCashFree} className=" btn btn-accent btn-block mr-1">
                 <Link href={"/checkout"}>Pay by UPI</Link>
               </button>
               <button
