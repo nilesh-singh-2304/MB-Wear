@@ -13,7 +13,7 @@ import { Router, useRouter } from 'next/router';
 const Mugies = ({products}) => {
   const router = useRouter()
   useEffect(() => {
-    if(localStorage.getItem('token')){
+    if(!localStorage.getItem('token')){
       router.push('/')                 //agr user already logged in h toh use login page nhi dikhayenge
     }
   }, [])
