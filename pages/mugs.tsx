@@ -9,7 +9,7 @@ import mongoose from "mongoose";
 import Head from "next/head";
 
 
-const mugies = ({products}) => {
+const Mugies = ({products}) => {
   return (
     <div>
        <Head>
@@ -126,4 +126,4 @@ export async function getServerSideProps(context){
   }                  //jsonparse and then json stringify krn se object deep copy ho jaaata h , ye na krn p product serialise nhi ho paa rha tha
 }
 
-export default mugies;
+export default Mugies;
