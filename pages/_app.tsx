@@ -112,13 +112,13 @@ const logout = () =>{
         waitingTime={300}
         onLoaderFinished={() => setProgress(0)}
       />
-  {/* {key && < Navbar logout={logout} user={user} key={key} buyNow={buyNow} cart={cart} addToCart ={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} {...pageProps} /> } */}
+  {key && < Navbar logout={logout} user={user} key={key} buyNow={buyNow} cart={cart} addToCart ={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} {...pageProps} /> }
    {/* //hmne user and key ko navbar m de dia as hm apn user ko navbar m he handle krna chahate h */}
-  {/* <Component  buyNow={buyNow} user={user} reRenderNav={reRenderNav} cart={cart} addToCart ={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} {...pageProps} />
-  <Footer /> */}
-  <div>
+  <Component  buyNow={buyNow} user={user} reRenderNav={reRenderNav} cart={cart} addToCart ={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} {...pageProps} />
+  <Footer />
+  {/* <div>
     hello
-  </div>
+  </div> */}
   </div>
   </>;
 }
