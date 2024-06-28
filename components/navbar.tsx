@@ -77,7 +77,7 @@ theme="dark"
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              {<Link href={'/tshirt'}>Tshirts</Link>}
+              {<Link href={`${process.env.NEXT_PUBLIC_HOST}/tshirt`}>Tshirts</Link>}
             </li> 
             <li>
               {<Link href={'/hoodies'}>Hoodies</Link>}
