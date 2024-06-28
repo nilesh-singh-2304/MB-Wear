@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import axios from "axios";
 import Head from 'next/head';
 
-const orders = () => {
+const Orders = () => {
   const router = useRouter()
   const [Orders, setorders] = useState([])
     useEffect( () => {
@@ -97,4 +97,4 @@ const orders = () => {
 // }
 
 
-export default orders
+export default Orders

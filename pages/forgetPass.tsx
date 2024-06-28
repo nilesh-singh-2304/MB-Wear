@@ -8,7 +8,7 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const forgetPass = () => {
+const ForgetPass = () => {
   const router = useRouter()
   // console.log(router.query.token)
   useEffect(() => {
@@ -218,4 +218,4 @@ const forgetPass = () => {
   )
 }
 
-export default forgetPass
+export default ForgetPass

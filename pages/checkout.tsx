@@ -539,4 +539,4 @@ const Checkout = ({
   )
 }
 
-export default checkout
+export default Checkout

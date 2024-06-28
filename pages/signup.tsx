@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router'
 import Head from 'next/head';
 
-const signup = () => {
+const Signup = () => {
   const router = useRouter()
   const [name, setname] = useState<string | null>('')
   const [email, setemail] = useState<string | null>('')
@@ -151,4 +151,4 @@ const signup = () => {
   )
 }
 
-export default signup
+export default Signup

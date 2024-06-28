@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Router, useRouter } from 'next/router';
 import Head from 'next/head'
 
-const login = ({reRenderNav}) => {
+const Login = ({reRenderNav}) => {
   const router = useRouter()
   const [email, setemail] = useState<string | null >('')
   const [password, setpassword] = useState<string | null >('')
@@ -194,4 +194,4 @@ setpassword('')
   )
 }
 
-export default login
+export default Login

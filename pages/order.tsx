@@ -6,7 +6,7 @@ import mongoose from "mongoose";
 import Order from '@/model/order';
 import Head from 'next/head';
 
-const order = ({products}) => {
+const Orderr = ({products}) => {
   const router = useRouter()
   const {id} = router.query
   // console.log(products)
@@ -69,4 +69,4 @@ export async function getServerSideProps(context){
   }                  //jsonparse and then json stringify krn se object deep copy ho jaaata h , ye na krn p product serialise nhi ho paa rha tha
 }
 
-export default order
+export default Orderr
