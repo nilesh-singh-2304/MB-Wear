@@ -6,7 +6,7 @@ import { FaEye } from "react-icons/fa"
 import { FaFileUpload } from "react-icons/fa";
 import { IoBagCheckSharp } from "react-icons/io5";
 import Link from 'next/link';
-import micro from "../photos/MB Logo White.png"
+import micro from "../../photos/MB Logo White.png"
 
 const Login = () => {
 
